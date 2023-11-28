@@ -1,0 +1,2 @@
+class PrjEulerSample < ApplicationRecord
+end

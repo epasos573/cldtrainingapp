@@ -1,0 +1,27 @@
+<h1>Prjeulersamples#index</h1>
+
+<h3>Onboarding Training Samples</h3>
+
+<ul>
+  <% @prjeulersamples.each do |prjeulersample| %>
+    <li>
+      <%= prjeulersample.title %>
+      <ul>
+        <li> <%= "Description   : " + prjeulersample.description  %></li>
+        <li> Created_At       : <%= prjeulersample.created_at  %></li>
+        <li> Updated_At       : <%= prjeulersample.created_at  %></li>
+
+
+        <!--
+        id: 1,
+        title: "MyFirst_Ruby_Method",
+        description: "This is a test project for Ruby onboarding training",
+        created_at: Mon, 27 Nov 2023 05:00:03.457610000 UTC +00:00,
+        updated_at: Mon, 27 Nov 2023 05:00:03.457610000 UTC +00:00>
+
+        -->
+
+      </ul>
+    </li>
+  <% end %>
+</ul>

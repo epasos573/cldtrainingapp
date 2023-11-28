@@ -1,0 +1,372 @@
+Started GET "/" for 127.0.0.1 at 2023-11-27 11:15:35 +0800
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/epasos/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/epasos/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 375)
+Completed 200 OK in 48ms (Views: 12.7ms | ActiveRecord: 0.0ms | Allocations: 7875)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-27 11:18:46 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/epasos/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/epasos/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.1ms | Allocations: 375)
+Completed 200 OK in 14ms (Views: 5.6ms | ActiveRecord: 0.0ms | Allocations: 4269)
+
+
+Started GET "/articles" for 127.0.0.1 at 2023-11-27 11:19:14 +0800
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 96)
+  Rendered layout layouts/application.html.erb (Duration: 271.1ms | Allocations: 99977)
+Completed 200 OK in 279ms (Views: 276.3ms | ActiveRecord: 0.0ms | Allocations: 100900)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-27 11:19:42 +0800
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 99)
+  Rendered layout layouts/application.html.erb (Duration: 30.0ms | Allocations: 16434)
+Completed 200 OK in 32ms (Views: 31.5ms | ActiveRecord: 0.0ms | Allocations: 17339)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-27 03:21:09.151029', '2023-11-27 03:21:09.151031') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArticles (20231127032036)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231127032036') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["title", "Hello Rails"], ["body", "I am on Rails!"], ["created_at", "2023-11-27 03:21:42.235233"], ["updated_at", "2023-11-27 03:21:42.235233"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2023-11-27 11:23:16 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:6
+  Rendered articles/index.html.erb within layouts/application (Duration: 41.7ms | Allocations: 10033)
+  Rendered layout layouts/application.html.erb (Duration: 120.3ms | Allocations: 46153)
+Completed 200 OK in 175ms (Views: 127.4ms | ActiveRecord: 4.3ms | Allocations: 56016)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-27 11:24:04 +0800
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:6
+  Rendered articles/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 3431)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 16978)
+Completed 200 OK in 30ms (Views: 23.9ms | ActiveRecord: 2.7ms | Allocations: 18456)
+
+
+Started GET "/" for 127.0.2.2 at 2023-11-27 12:55:41 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PrjeulersamplesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prjeulersamples/index.html.erb within layouts/application
+  Rendered prjeulersamples/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 187)
+  Rendered layout layouts/application.html.erb (Duration: 103.6ms | Allocations: 35426)
+Completed 200 OK in 127ms (Views: 113.3ms | ActiveRecord: 0.0ms | Allocations: 39494)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePrjEulerSamples (20231127045706)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "prj_euler_samples" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231127045706') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPrjEulerSample Create (1.0ms)[0m  [1m[32mINSERT INTO "prj_euler_samples" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["title", "MyFirst_Ruby_Method"], ["description", "This is a test project for Ruby onboarding training"], ["created_at", "2023-11-27 05:00:03.457610"], ["updated_at", "2023-11-27 05:00:03.457610"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-11-27 13:09:45 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PrjeulersamplesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prjeulersamples/index.html.erb within layouts/application
+  [1m[36mPrjEulerSample Load (0.4ms)[0m  [1m[34mSELECT "prj_euler_samples".* FROM "prj_euler_samples"[0m
+  ↳ app/views/prjeulersamples/index.html.erb:6
+  Rendered prjeulersamples/index.html.erb within layouts/application (Duration: 24.0ms | Allocations: 12160)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 12286)
+Completed 500 Internal Server Error in 104ms (ActiveRecord: 2.8ms | Allocations: 22147)
+
+
+  
+ActionView::Template::Error (no implicit conversion of Integer into String):
+     7:     <li>
+     8:       <%= prjeulersample.title %>
+     9:       <ul>
+    10:         <li><%="ID: " + prjeulersample.id %></li>
+    11: 
+    12:         <!--
+    13:         id: 1,
+  
+app/views/prjeulersamples/index.html.erb:10:in `+'
+app/views/prjeulersamples/index.html.erb:10
+app/views/prjeulersamples/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2023-11-27 13:12:18 +0800
+Processing by PrjeulersamplesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prjeulersamples/index.html.erb within layouts/application
+  [1m[36mPrjEulerSample Load (0.1ms)[0m  [1m[34mSELECT "prj_euler_samples".* FROM "prj_euler_samples"[0m
+  ↳ app/views/prjeulersamples/index.html.erb:6
+  Rendered prjeulersamples/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 3524)
+  Rendered layout layouts/application.html.erb (Duration: 61.0ms | Allocations: 38835)
+Completed 200 OK in 66ms (Views: 60.6ms | ActiveRecord: 2.3ms | Allocations: 40395)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-27 13:16:28 +0800
+Processing by PrjeulersamplesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prjeulersamples/index.html.erb within layouts/application
+  [1m[36mPrjEulerSample Load (0.1ms)[0m  [1m[34mSELECT "prj_euler_samples".* FROM "prj_euler_samples"[0m
+  ↳ app/views/prjeulersamples/index.html.erb:6
+  Rendered prjeulersamples/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 3472)
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | Allocations: 17081)
+Completed 200 OK in 26ms (Views: 20.2ms | ActiveRecord: 2.1ms | Allocations: 18606)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-27 13:18:13 +0800
+Processing by PrjeulersamplesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prjeulersamples/index.html.erb within layouts/application
+  [1m[36mPrjEulerSample Load (0.1ms)[0m  [1m[34mSELECT "prj_euler_samples".* FROM "prj_euler_samples"[0m
+  ↳ app/views/prjeulersamples/index.html.erb:6
+  Rendered prjeulersamples/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 4455)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 4547)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 2.1ms | Allocations: 6044)
+
+
+  
+ActionView::Template::Error (no implicit conversion of ActiveSupport::TimeWithZone into String):
+     8:       <%= prjeulersample.title %>
+     9:       <ul>
+    10:         <li> <%= "Description : " + prjeulersample.description  %></li>
+    11:         <li> <%= "Created_At : " + prjeulersample.created_at  %></li>
+    12:         <li> <%= "Updated_At : " + prjeulersample.updated_at  %></li>
+    13: 
+    14:         <!--
+  
+app/views/prjeulersamples/index.html.erb:11:in `+'
+app/views/prjeulersamples/index.html.erb:11
+app/views/prjeulersamples/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2023-11-27 13:18:47 +0800
+Processing by PrjeulersamplesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prjeulersamples/index.html.erb within layouts/application
+  [1m[36mPrjEulerSample Load (0.1ms)[0m  [1m[34mSELECT "prj_euler_samples".* FROM "prj_euler_samples"[0m
+  ↳ app/views/prjeulersamples/index.html.erb:6
+  Rendered prjeulersamples/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 3589)
+  Rendered layout layouts/application.html.erb (Duration: 23.7ms | Allocations: 17304)
+Completed 200 OK in 29ms (Views: 23.3ms | ActiveRecord: 2.5ms | Allocations: 18827)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-27 13:19:11 +0800
+Processing by PrjeulersamplesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prjeulersamples/index.html.erb within layouts/application
+  [1m[36mPrjEulerSample Load (0.1ms)[0m  [1m[34mSELECT "prj_euler_samples".* FROM "prj_euler_samples"[0m
+  ↳ app/views/prjeulersamples/index.html.erb:6
+  Rendered prjeulersamples/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 3477)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 16989)
+Completed 200 OK in 27ms (Views: 21.3ms | ActiveRecord: 2.3ms | Allocations: 18509)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-27 13:21:38 +0800
+Processing by PrjeulersamplesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prjeulersamples/index.html.erb within layouts/application
+  [1m[36mPrjEulerSample Load (0.1ms)[0m  [1m[34mSELECT "prj_euler_samples".* FROM "prj_euler_samples"[0m
+  ↳ app/views/prjeulersamples/index.html.erb:6
+  Rendered prjeulersamples/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 3555)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 17282)
+Completed 200 OK in 27ms (Views: 21.4ms | ActiveRecord: 2.1ms | Allocations: 18805)
+
+
+Started GET "/multiplesof3and5" for 127.0.0.1 at 2023-11-27 13:30:22 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/multiplesof3and5"):
+  
+Started GET "/multiplesof3and5" for 127.0.0.1 at 2023-11-27 13:32:03 +0800
+Processing by PrjeulersamplesController#multiplesof3and5 as HTML
+Completed 406 Not Acceptable in 2ms (ActiveRecord: 0.0ms | Allocations: 805)
+
+
+  
+ActionController::MissingExactTemplate (PrjeulersamplesController#multiplesof3and5 is missing a template for request formats: text/html):
+  
+actionpack (7.1.2) lib/action_controller/metal/implicit_render.rb:47:in `default_render'
+actionpack (7.1.2) lib/action_controller/metal/basic_implicit_render.rb:7:in `send_action'
+actionpack (7.1.2) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.2) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+actiontext (7.1.2) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.2) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.2) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.2) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.2) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.2) lib/active_record/migration.rb:654:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.2) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/multiplesof3and5" for 127.0.0.1 at 2023-11-27 13:33:55 +0800
+Processing by PrjeulersamplesController#multiplesof3and5 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prjeulersamples/multiplesof3and5.erb within layouts/application
+  Rendered prjeulersamples/multiplesof3and5.erb within layouts/application (Duration: 0.3ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 13825)
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 0.0ms | Allocations: 14734)
+
+
+Started GET "/multiplesof3and5" for 127.0.0.1 at 2023-11-27 13:35:37 +0800
+Processing by PrjeulersamplesController#multiplesof3and5 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prjeulersamples/multiplesof3and5.erb within layouts/application
+  Rendered prjeulersamples/multiplesof3and5.erb within layouts/application (Duration: 0.3ms | Allocations: 115)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 13608)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 14514)
+
+
+Started GET "/multiplesof3and5" for 127.0.0.1 at 2023-11-27 13:40:49 +0800
+Processing by PrjeulersamplesController#multiplesof3and5 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prjeulersamples/multiplesof3and5.erb within layouts/application
+  Rendered prjeulersamples/multiplesof3and5.erb within layouts/application (Duration: 0.8ms | Allocations: 1095)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1187)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2077)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `article' for #<ActionView::Base:0x0000000002f648>):
+     8: 
+     9: <% @resultdata.each do |resultdata| %>
+    10:   <li>
+    11:     <%= article  %>
+    12:   </li>
+    13: <% end %>
+  
+app/views/prjeulersamples/multiplesof3and5.erb:11
+app/views/prjeulersamples/multiplesof3and5.erb:9:in `each'
+app/views/prjeulersamples/multiplesof3and5.erb:9
+Started GET "/multiplesof3and5" for 127.0.0.1 at 2023-11-27 13:41:02 +0800
+Processing by PrjeulersamplesController#multiplesof3and5 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prjeulersamples/multiplesof3and5.erb within layouts/application
+  Rendered prjeulersamples/multiplesof3and5.erb within layouts/application (Duration: 0.3ms | Allocations: 177)
+  Rendered layout layouts/application.html.erb (Duration: 37.7ms | Allocations: 13903)
+Completed 200 OK in 41ms (Views: 39.7ms | ActiveRecord: 0.0ms | Allocations: 14811)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-27 15:13:50 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PrjeulersamplesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prjeulersamples/index.html.erb within layouts/application
+  [1m[36mPrjEulerSample Load (0.3ms)[0m  [1m[34mSELECT "prj_euler_samples".* FROM "prj_euler_samples"[0m
+  ↳ app/views/prjeulersamples/index.html.erb:6
+  Rendered prjeulersamples/index.html.erb within layouts/application (Duration: 101.8ms | Allocations: 10238)
+  Rendered layout layouts/application.html.erb (Duration: 167.2ms | Allocations: 46434)
+Completed 200 OK in 219ms (Views: 115.8ms | ActiveRecord: 72.3ms | Allocations: 56339)
+
+
+Started GET "/multiplesof3and5" for 127.0.0.1 at 2023-11-27 15:13:56 +0800
+Processing by PrjeulersamplesController#multiplesof3and5 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prjeulersamples/multiplesof3and5.erb within layouts/application
+  Rendered prjeulersamples/multiplesof3and5.erb within layouts/application (Duration: 0.4ms | Allocations: 179)
+  Rendered layout layouts/application.html.erb (Duration: 56.9ms | Allocations: 2293)
+Completed 200 OK in 59ms (Views: 57.4ms | ActiveRecord: 0.0ms | Allocations: 2610)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-28 18:20:11 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PrjeulersamplesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prjeulersamples/index.html.erb within layouts/application
+  [1m[36mPrjEulerSample Load (1.3ms)[0m  [1m[34mSELECT "prj_euler_samples".* FROM "prj_euler_samples"[0m
+  ↳ app/views/prjeulersamples/index.html.erb:6
+  Rendered prjeulersamples/index.html.erb within layouts/application (Duration: 47.2ms | Allocations: 10238)
+  Rendered layout layouts/application.html.erb (Duration: 110.2ms | Allocations: 46687)
+Completed 200 OK in 151ms (Views: 115.9ms | ActiveRecord: 3.9ms | Allocations: 56703)
+
+
