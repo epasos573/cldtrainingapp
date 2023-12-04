@@ -69,3 +69,5 @@ end
 gem 'rspec', '~> 3.0'
 
 gem 'prime'
+
+gem 'cloudinary'
