@@ -41,7 +41,7 @@ class CldProcess
 
   def get_upload_response_data()
 
-    result = Array.new
+    #result = Array.new
 
 
     ## Upload two files using the Upload API:
@@ -55,7 +55,7 @@ class CldProcess
     )
 
     # Retrieve some attributes from the first upload response.
-    puts "Upload response: #{upload1}"
+    # puts "Upload response: #{upload1}"
 
     #puts "File size of the #{upload1['public_id']}.#{upload1['format']} #{upload1['resource_type']}: #{upload1['bytes']/1024} KB"
     # Upload response: {
@@ -99,9 +99,11 @@ class CldProcess
 
     puts response
 
-    result.push(response)
+    # Use JSON object (?) for verification in rspec (JSON.parse(variable))
+    #result.push(response)
 
-    @upload_response_data = result
+
+    @upload_response_data = upload1
 
   end
 

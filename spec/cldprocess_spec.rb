@@ -12,10 +12,14 @@ RSpec.describe CldProcess, "#assetupload" do
       cldprocess.get_upload_response_data()
 
       # Check the size
-      expect(cldprocess.upload_response_data.size).to equal 1
+      #expect(cldprocess.upload_response_data.size).to equal 1
 
       # Check the contents
-      expect(cldprocess.upload_response_data[0].to_s.include? "model.jpg image: 143 KB").to equal true
+      #expect(cldprocess.upload_response_data[0].include? "model.jpg image: 143 KB").to equal true
+
+      response = "#{cldprocess.upload_response_data['public_id']}.#{cldprocess.upload_response_data['format']} #{cldprocess.upload_response_data['resource_type']}: #{cldprocess.upload_response_data['bytes']/1024} KB"
+      expect(response.include? "model.jpg image: 143 KB").to equal true
+
 
     end
 
